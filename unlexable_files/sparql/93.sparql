@@ -1,0 +1,58 @@
+            SELECT DISTINCT ?artist ?artist_type ?label ?role ?performance ?source ?fallback
+            WHERE
+              {
+                        ?record         a                                         mo:Record.
+                      { ?record         bmmo:importedFrom                         ?source.        }
+@fallback@      UNION { ?record         bmmo:importedFrom                         ?fallback.      }
+@fallback@      MINUS { []              bmmo:alternateOf                          ?record;
+@fallback@                              bmmo:importedFrom                         ?source.        }
+                MINUS { ?record         bmmo:alternatePickOf                      [].             }
+
+                        ?artist         a                                         mo:MusicArtist.
+                      { ?record         foaf:maker                                ?artist.        }
+                UNION { ?record         mo:track/foaf:maker                       ?artist.        }
+                UNION { ?record         foaf:maker/rel:collaboratesWith           ?artist.        }
+                UNION { ?record         mo:track/foaf:maker/rel:collaboratesWith  ?artist.        }
+
+                        ?artist         rdfs:label                                ?label.
+             OPTIONAL { ?artist         vocab:artist_type                         ?artist_type.   }
+                MINUS { ?artist         vocab:artist_type                         "2"^^xs:short;
+                                        rel:collaboratesWith                      [].             }
+
+@performance@           ?performance    a                                       mo:Performance.
+# The stuff below should be matched by a single clause, if those statements were subproperties of mo:performer
+@performance@         { ?performance    mo:conductor                            ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_conductor"         AS ?role) }
+@performance@   UNION { ?performance    mo:engineer                             ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_engineer"          AS ?role) }
+@performance@   UNION { ?performance    mo:performer                            ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_performer"         AS ?role) }
+@performance@   UNION { ?performance    mo:producer                             ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_producer"          AS ?role) }
+@performance@   UNION { ?performance    mo:singer                               ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_singer"            AS ?role) }
+
+@performance@   UNION { ?performance    bmmo:alto                               ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_alto"              AS ?role) }
+@performance@   UNION { ?performance    bmmo:arranger                           ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_arranger"          AS ?role) }
+@performance@   UNION { ?performance    bmmo:background_singer                  ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_background singer" AS ?role) }
+@performance@   UNION { ?performance    bmmo:balance                            ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_balance"           AS ?role) }
+@performance@   UNION { ?performance    bmmo:bass                               ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_bass"              AS ?role) }
+@performance@   UNION { ?performance    bmmo:bass_baritone                      ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_bass baritone"     AS ?role) }
+@performance@   UNION { ?performance    bmmo:baritone                           ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_baritone"          AS ?role) }
+@performance@   UNION { ?performance    bmmo:choir                              ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_choir"             AS ?role) }
+@performance@   UNION { ?performance    bmmo:chorus_master                      ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_chorus master"     AS ?role) }
+@performance@   UNION { ?performance    bmmo:contralto                          ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_contralto"         AS ?role) }
+@performance@   UNION { ?performance    bmmo:editor                             ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_editor"            AS ?role) }
+@performance@   UNION { ?performance    bmmo:lead_singer                        ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_lead singer"       AS ?role) }
+@performance@   UNION { ?performance    bmmo:mastering                          ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_mastering"         AS ?role) }
+@performance@   UNION { ?performance    bmmo:mezzo_soprano                      ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_mezzo soprano"     AS ?role) }
+@performance@   UNION { ?performance    bmmo:mix                                ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_mix"               AS ?role) }
+@performance@   UNION { ?performance    bmmo:orchestra                          ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_orchestra"         AS ?role) }
+@performance@   UNION { ?performance    bmmo:orchestrator                       ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_orchestrator"      AS ?role) }
+@performance@   UNION { ?performance    bmmo:programming                        ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_programming"       AS ?role) }
+@performance@   UNION { ?performance    bmmo:recording                          ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_recording"         AS ?role) }
+@performance@   UNION { ?performance    bmmo:soprano                            ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_soprano"           AS ?role) }
+@performance@   UNION { ?performance    bmmo:tenor                              ?artist. BIND ("http://bluemarine.tidalwave.it/2015/04/mo/performer_tenor"             AS ?role) }
+
+@performance@   UNION { ?performance    ?role                                   ?artist.
+@performance@           FILTER regex(str(?role), "http://bluemarine.tidalwave.it/2015/04/mo/performer_.*")  }
+
+              }
+# ?artist in case of ?label matching, for sake of test consistency.
+            ORDER BY ?label ?artist
+@performance@        ?role

@@ -1,0 +1,246 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      9991,        237]
+NotebookOptionsPosition[      9638,        220]
+NotebookOutlinePosition[     10016,        236]
+CellTagsIndexPosition[      9973,        233]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Animate", " ", "a", " ", 
+      RowBox[{"pendulum", ".", " ", 
+       RowBox[{"Set", " ", "'"}]}], 
+      RowBox[{"l", "'"}]}], " ", "&"}], " ", 
+    RowBox[{"play", " ", "'"}], 
+    RowBox[{"a", "'"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Animate", "[", 
+   RowBox[{
+    RowBox[{"Show", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ParametricPlot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"l", " ", 
+              RowBox[{"Cos", "[", "\[Theta]", "]"}]}], ",", " ", 
+             RowBox[{"l", " ", 
+              RowBox[{"Sin", "[", "\[Theta]", "]"}]}]}], "}"}], ",", " ", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", " ", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{"\[Theta]", " ", "+", " ", 
+                  RowBox[{"Pi", "/", "2"}]}], "]"}]}], ",", " ", 
+               RowBox[{
+                RowBox[{"-", "x"}], " ", 
+                RowBox[{"Cos", "[", 
+                 RowBox[{"\[Theta]", " ", "+", " ", 
+                  RowBox[{"Pi", "/", "2"}]}], "]"}]}]}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", " ", "0", ",", " ", "l", ",", " ", "0.1"}], 
+              "}"}]}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\[Theta]", ",", " ", 
+           RowBox[{
+            RowBox[{"-", "Pi"}], "/", "4"}], ",", " ", "a"}], "}"}], ",", " ", 
+         RowBox[{"PlotRange", "\[Rule]", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "2"}], ",", " ", "2"}], "}"}]}], "}"}]}], ",", " ", 
+         RowBox[{"Mesh", "\[Rule]", "1"}], ",", 
+         RowBox[{"MeshStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{
+            RowBox[{"PointSize", "[", "0.01", "]"}], ",", " ", "Red"}], 
+           "]"}]}], ",", " ", 
+         RowBox[{"PlotStyle", "\[Rule]", "White"}]}], "]"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"ParametricPlot", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"l", " ", 
+             RowBox[{"Cos", "[", "\[Theta]", "]"}]}], ",", " ", 
+            RowBox[{"l", " ", 
+             RowBox[{"Sin", "[", "\[Theta]", "]"}]}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"\[Theta]", ",", " ", 
+            RowBox[{
+             RowBox[{"-", "Pi"}], "/", "4"}], ",", " ", "a"}], "}"}], ",", 
+          " ", 
+          RowBox[{"Mesh", "\[Rule]", "1"}], ",", " ", 
+          RowBox[{"MeshStyle", "\[Rule]", 
+           RowBox[{"Directive", "[", 
+            RowBox[{
+             RowBox[{"PointSize", "[", "0.08", "]"}], ",", " ", "Blue"}], 
+            "]"}]}], ",", 
+          RowBox[{"PlotStyle", "\[Rule]", "White"}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", " ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "2"}], ",", " ", "2"}], "}"}]}], "}"}]}]}], " ", 
+         "]"}], "}"}]}], "}"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"a", ",", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "Pi"}], "/", "4"}], "+", "0.01", "+", "0.01"}], ",", " ", 
+      RowBox[{
+       RowBox[{"-", " ", "Pi"}], "-", 
+       RowBox[{"Pi", "/", "4"}]}], ",", "  ", 
+      RowBox[{"Pi", "/", "400"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"l", ",", " ", "0", ",", " ", "2"}], "}"}], ",", " ", 
+    RowBox[{"AnimationDirection", "\[Rule]", "ForwardBackward"}], ",", " ", 
+    RowBox[{"AnimationRunning", "\[Rule]", "False"}], ",", " ", 
+    RowBox[{"AnimationRate", "\[Rule]", "180"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.568695362431369*^9, 3.5686954465211782`*^9}, {
+  3.5686954778989735`*^9, 3.568695592583533*^9}, {3.568695623611307*^9, 
+  3.5686956535940228`*^9}, {3.568695700800722*^9, 3.568695706407043*^9}, {
+  3.56869574289613*^9, 3.5686957440381956`*^9}, {3.568696098837489*^9, 
+  3.568696160192998*^9}, {3.56869620306145*^9, 3.568696210416871*^9}, {
+  3.568696332681864*^9, 3.568696499723418*^9}, {3.56869654329091*^9, 
+  3.5686965434519196`*^9}, {3.569030417738867*^9, 3.5690305861985025`*^9}, {
+  3.5690315227420692`*^9, 3.569031576635152*^9}, {3.569031620765676*^9, 
+  3.5690316209856887`*^9}, {3.5690316679603753`*^9, 3.569031695998979*^9}, {
+  3.5690332722501354`*^9, 3.569033324232109*^9}, {3.569550495010461*^9, 
+  3.5695504982236443`*^9}, {3.56955053905398*^9, 3.569550567076583*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = -2.1634068942449063`, \
+$CellContext`l$$ = 1.323, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`a$$], -0.7653981633974483, Rational[-5, 4] Pi, 
+      Rational[1, 400] Pi}, {
+      Hold[$CellContext`l$$], 0, 2}}, Typeset`size$$ = {432., {215., 222.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`a$5233$$ = 0, $CellContext`l$5234$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = -0.7653981633974483, \
+$CellContext`l$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`a$$, $CellContext`a$5233$$, 0], 
+        Hold[$CellContext`l$$, $CellContext`l$5234$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[{
+         ParametricPlot[{{$CellContext`l$$ 
+            Cos[$CellContext`\[Theta]], $CellContext`l$$ 
+            Sin[$CellContext`\[Theta]]}, 
+           
+           Table[{$CellContext`x 
+             Sin[$CellContext`\[Theta] + Pi/2], (-$CellContext`x) 
+             Cos[$CellContext`\[Theta] + Pi/2]}, {$CellContext`x, 
+             0, $CellContext`l$$, 0.1}]}, {$CellContext`\[Theta], (-Pi)/
+           4, $CellContext`a$$}, PlotRange -> {{-2, 2}, {-2, 2}}, Mesh -> 1, 
+          MeshStyle -> Directive[
+            PointSize[0.01], Red], PlotStyle -> White], {
+          
+          ParametricPlot[{$CellContext`l$$ 
+            Cos[$CellContext`\[Theta]], $CellContext`l$$ 
+            Sin[$CellContext`\[Theta]]}, {$CellContext`\[Theta], (-Pi)/
+            4, $CellContext`a$$}, Mesh -> 1, MeshStyle -> Directive[
+             PointSize[0.08], Blue], PlotStyle -> White, 
+           PlotRange -> {{-2, 2}, {-2, 2}}]}}], 
+      "Specifications" :> {{$CellContext`a$$, -0.7653981633974483, 
+         Rational[-5, 4] Pi, Rational[1, 400] Pi, AnimationDirection -> 
+         ForwardBackward, AnimationRunning -> False, AnimationRate -> 180, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}, {$CellContext`l$$, 0, 2, AnimationDirection -> 
+         ForwardBackward, AnimationRunning -> False, AnimationRate -> 180, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}}, 
+      "Options" :> {
+       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
+        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
+        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
+     ImageSizeCache->{489., {279., 284.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Animate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.568695447670244*^9, 3.56869547924305*^9, 3.568695545308829*^9, 
+   3.5686955949206667`*^9, {3.568695636450042*^9, 3.5686956549400992`*^9}, {
+   3.568695734874671*^9, 3.5686957448622427`*^9}, {3.5686961471432514`*^9, 
+   3.5686961604790144`*^9}, {3.568696205086566*^9, 3.5686962107958927`*^9}, 
+   3.5686962548404117`*^9, {3.5686963347029796`*^9, 3.568696346124633*^9}, {
+   3.5686963765913754`*^9, 3.568696418088749*^9}, {3.5686964525447197`*^9, 
+   3.568696500231447*^9}, 3.568696544098956*^9, 3.5690303850259957`*^9, {
+   3.5690305577888775`*^9, 3.56903058738657*^9}, {3.569031548139522*^9, 
+   3.5690315770281744`*^9}, 3.5690316213147078`*^9, {3.5690316717135897`*^9, 
+   3.5690316966540165`*^9}, 3.5695505014338284`*^9, {3.5695505441002684`*^9, 
+   3.569550568549667*^9}}]
+}, Open  ]]
+},
+WindowSize->{1350, 633},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.2000000476837158`,
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (October 6, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 4866, 117, 155, "Input"],
+Cell[5448, 141, 4174, 76, 583, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
